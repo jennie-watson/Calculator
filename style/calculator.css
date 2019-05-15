@@ -47,12 +47,17 @@ h1, h2, h3 ,h4, h5, h6 {
     text-align: right;
 }
 
+.keyboard{
+    padding: 10px;
+}
+
 .tall {
     height: 50px;
 }
 /*
     style the calculator box so it has som shadow and looks a bit more 3D
     Make the buttons look cool
+        buttons width in a row (inc margin) should add up to 280px
         when you click the button it should depress
     Lay the buttons out correctsly
 */
