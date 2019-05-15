@@ -1,0 +1,63 @@
+body{
+    font-family: 'Share Tech Mono', monospace;
+}
+h1, h2, h3 ,h4, h5, h6 {
+    margin: 0;
+    font-size: 1em;
+    font-family: 'Black Ops One', cursive;
+}
+
+.container{
+    margin: 0 auto;
+    clear: both;
+    max-width: 500px;
+}
+
+.calculator{
+    display: block;
+    border: 10px #aaa solid;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    min-height: 400px;
+    margin: 0 auto;
+    background-color: #ccc; 
+}
+
+.screen{
+    color: #eee;
+    background-color: #444;
+    padding: 5px 0 20px 0;
+}
+
+.screen h1{
+    padding-bottom: 10px;
+}
+
+.screen input{
+    width: 280px;
+    font-size: 2em;
+    background-color: #F4CD69;
+    color: #604C17;
+    border-left: 2px solid #333;
+    border-top: 2px solid #333;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+    border-radius: 2px;
+    text-align: right;
+}
+
+.keyboard{
+    padding: 10px;
+}
+
+.tall {
+    height: 50px;
+}
+/*
+    style the calculator box so it has som shadow and looks a bit more 3D
+    Make the buttons look cool
+        buttons width in a row (inc margin) should add up to 280px
+        when you click the button it should depress
+    Lay the buttons out correctsly
+*/
