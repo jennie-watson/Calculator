@@ -1,5 +1,21 @@
+h1, h2, h3 ,h4, h5, h6 {
+    margin: 0;
+    font-size: 1em;
+}
+
 .container{
     margin: 0 auto;
     clear: both;
     max-width: 500px;
+}
+
+.calculator{
+    display: block;
+    border: 1px #dedede solid;
+    border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    margin: 0 auto;
+    background-color: #ddd; 
 }
