@@ -2,6 +2,7 @@
 // setup index.html, css and js file 
 
 // temp = var used for calculations. Define as empty string
+
 // JS
     // Everything needs to be pushed to an array which we the loop throught to caluculate
 
@@ -42,4 +43,3 @@
     // Do basic positioning of elements
     // do basic styling
 
-    
