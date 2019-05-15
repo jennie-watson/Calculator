@@ -14,22 +14,21 @@ h1, h2, h3 ,h4, h5, h6 {
 }
 
 .calculator{
-    font-family: 'Share Tech Mono', monospace;
     display: block;
-    border: 1px #dedede solid;
-    border-radius: 2px;
+    border: 10px #aaa solid;
+    border-radius: 10px;
     text-align: center;
     padding: 20px;
-    width: 200px;
+    width: 300px;
+    min-height: 400px;
     margin: 0 auto;
-    background-color: #ddd; 
+    background-color: #ccc; 
 }
 
 .tall {
     height: 50px;
 }
 /*
-    Get fonts for the numbers and brand 
     style the calculator box so it has som shadow and looks a bit more 3D
     Make the buttons look cool
         when you click the button it should depress
