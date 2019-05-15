@@ -1,0 +1,45 @@
+//creating variables for entries, total, temp, val
+// setup index.html, css and js file 
+
+// temp = var used for calculations. Define as empty string
+// JS
+    // Everything needs to be pushed to an array which we the loop throught to caluculate
+
+    // 1. You enter number first
+
+    // 2. then select some sort of opertator ('+' , '-' , '%' or '*' )
+
+    // 3. then enter a second number 
+
+    // 4. stores the outcome of that equation in the memory (temp)
+
+    // 5. then either
+        // if the operator selected is '=' return the answer
+        // if the operator selected is '+' , '-' , '%' or '*' then loop back to step 2
+        // if 'AC' or 'CE' have been selected then perform that operation
+
+    // Make functions for + , - , %, * 
+        // handle multiplication of two values
+        // handle division of two values
+        // handle addition of two values
+        // handle subtraction of two values
+
+
+// HTML
+
+    // Link the CSS and JS files to the HTML file
+    // Create the title of the calculator
+    // make a disabled element for the screen so you have to press the buttons
+    // Create x5 rows containing the buttons
+        // Create the button elements for numbers '0-9'
+        // Create the button elements for ('.', '=', '%', 'CE', 'AC')
+        // Create the button elements for operators ('+' , '-' , '/' or '*')
+            // make a class "tall" for the '+' operator
+
+
+// CSS
+    
+    // Do basic positioning of elements
+    // do basic styling
+
+    
