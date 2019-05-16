@@ -6,7 +6,14 @@ var calculator = {
     operatorStorage: '',
     numberArray: [],
     number: '',
-    printToCalc: function(number) {
+
+    // define methods for valuation of equations 
+    add: '',
+    sub: '',
+    multiply: '',
+    divide: '', 
+
+    printToCalc: (number) => {
         document.getElementById("answer").value=number
     }
 };
@@ -21,6 +28,9 @@ function buttonPress(buttonValue) {
         console.log(calculator)
 }
        
+
+
+
 
 //     else if(buttonValue === '-' /*|| buttonValue === '+' || buttonValue === '/' || buttonValue === '*'*/) {
 //         //clear number array and set a as temporary answer
