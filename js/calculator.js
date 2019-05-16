@@ -7,15 +7,14 @@ var calculator = {
     numberArray: [],
     number: '',
 
-    // define methods for valuation of equations 
-    add: '',
-    sub: '',
-    multiply: '',
-    divide: '', 
+    /* Methods */
+    // come back and do something to control for string length, particularly with decimal points and large numbers
+    add: (a,b) => { return a + b },
+    sub: (a,b) => { return a - b},
+    multiply: (a,b) => { return a * b},
+    divide: (a,b) => { return a / b }, 
 
-    printToCalc: (number) => {
-        document.getElementById("answer").value=number
-    }
+    printToCalc: (number) => { document.getElementById("answer").value=number }
 };
 
 
