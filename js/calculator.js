@@ -1,9 +1,14 @@
 //define the calculator object
+var calculator = {
+    screen = '',
+    temporaryAnswer = '',
+    finalAnswer = '',
+    operatorStorage = '',
+    numberArray = [],
+    number = ''
+};
 
-var temporaryAnswer = '';
-var number=[];
-var a = '';
-var b = '';
+
 
 function buttonPress(buttonValue){
     console.log(buttonValue)
