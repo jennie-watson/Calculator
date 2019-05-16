@@ -3,7 +3,7 @@ body{
 }
 h1, h2, h3 ,h4, h5, h6 {
     margin: 0;
-    font-size: 1em;
+    font-size: 1.5em;
     font-family: 'Black Ops One', cursive;
 }
 
@@ -48,11 +48,41 @@ h1, h2, h3 ,h4, h5, h6 {
 }
 
 .keyboard{
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
 }
 
+.row {
+    padding: 5px 0 5px 0;
+}
+
+.keyboard .row button {
+    width: 60px;
+    padding: 5px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 1em;
+    border-left: 2px solid #eee;
+    border-top: 2px solid #eee;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+.keyboard .row button:active {
+    border-left: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+button:focus {
+    outline: 0;
+}
+
+
 .tall {
-    height: 50px;
+    height: 80px;
 }
 /*
     style the calculator box so it has som shadow and looks a bit more 3D
