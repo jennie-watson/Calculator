@@ -1,27 +1,32 @@
 //define the calculator object
 var calculator = {
-    screen = '',
-    temporaryAnswer = '',
-    finalAnswer = '',
-    operatorStorage = '',
-    numberArray = [],
-    number = ''
+    screen: '',
+    temporaryAnswer: '',
+    finalAnswer: '',
+    operatorStorage: '',
+    numberArray: [],
+    number: '',
+    printToCalc: function(number) {
+        document.getElementById("answer").value=number
+    }
 };
-
 
 
 function buttonPress(buttonValue){
     console.log(buttonValue)
     if (!isNaN(buttonValue)) {
-        number.push(buttonValue)
-        
-        //prints current value to the calculator screen
-        //calls the printCalc function first
-        document.getElementById("answer").value=number.join('');
-        a = number.join('');
-        console.log(number);
-        console.log(a);
+        // number.push(buttonValue)
+        calculator.numberArray.push(buttonValue)
+        console.log(calculator)
     }
+
+        
+     
+        // push to the calc numberArray
+        // join the numArray and define as number property
+        // prints current value to the calculator screen
+}
+       
 
 //     else if(buttonValue === '-' /*|| buttonValue === '+' || buttonValue === '/' || buttonValue === '*'*/) {
 //         //clear number array and set a as temporary answer
@@ -38,12 +43,5 @@ function buttonPress(buttonValue){
 //         console.log('is an equal sign')
 //     }
 // }
-
-//print to screen function - move to object
-function printToCalc(number){
-    document.getElementById("answer").value=number
-}
-
-
 
 
