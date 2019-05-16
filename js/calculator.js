@@ -33,7 +33,22 @@ function buttonPress(buttonValue) {
     // if CE - clear currrent (remove current number & operator)
     // 
     //if operator do something
-        console.log(calculator)
+    // if = (dont know where to put this yet)
+    else{
+        //check for stored operator
+            // ! stored operator
+                // set temp ans as number
+                // clear number
+                // store operator
+            // stored operator
+                // check what the store operator is and use that function
+                    // set temp ans as opFunc(temp, num)
+                
+
+        
+    }
+
+    console.log(calculator)
 }
        
 
