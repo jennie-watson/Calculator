@@ -12,19 +12,13 @@ var calculator = {
 };
 
 
-function buttonPress(buttonValue){
-    console.log(buttonValue)
+function buttonPress(buttonValue) {
     if (!isNaN(buttonValue)) {
-        // number.push(buttonValue)
         calculator.numberArray.push(buttonValue)
-        console.log(calculator)
+        calculator.number = calculator.numberArray.join('')
+        calculator.printToCalc(calculator.number)
     }
-
-        
-     
-        // push to the calc numberArray
-        // join the numArray and define as number property
-        // prints current value to the calculator screen
+        console.log(calculator)
 }
        
 
