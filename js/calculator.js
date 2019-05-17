@@ -3,7 +3,7 @@ var calculator = {
     screen: '',
     temporaryAnswer: '',
     finalAnswer: '',
-    operatorStorage: '',
+    operator: '',
     numberArray: [],
     number: '',
 
@@ -25,8 +25,19 @@ function buttonPress(buttonValue) {
     if (!isNaN(buttonValue)) {
         calculator.numberArray.push(buttonValue)
         calculator.number = calculator.numberArray.join('')
-        calculator.printToCalc(calculator.number)
-    }
+        calculator.printToCalc(calculator.number) 
+    } else{
+        //check for stored operator
+        if (!calculator.operator) {
+            // set temp ans as number
+            calculator.temporaryAnswer = calculator.number
+            // clear number
+            calculator.number = 0
+            calculator.numberArray = []
+            // store operator
+            calculator.operator = buttonValue
+        }
+
     // if .
     // if % - dive answer by 100 and return value
     // if AC - reintitilise calculator
@@ -34,12 +45,11 @@ function buttonPress(buttonValue) {
     // 
     //if operator do something
     // if = (dont know where to put this yet)
-    else{
-        //check for stored operator
-            // ! stored operator
-                // set temp ans as number
-                // clear number
-                // store operator
+    
+    
+        
+
+            
             // stored operator
                 // check what the store operator is and use that function
                     // set temp ans as opFunc(temp, num)
