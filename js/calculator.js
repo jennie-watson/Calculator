@@ -71,6 +71,9 @@ function buttonPress(buttonValue) {
                     calculator.temporaryAnswer = calculator.divide(temporaryAnswer, number) 
                     console.log(temporaryAnswer + ' / ' + number + ' = ' + calculator.temporaryAnswer )
                     break;
+                case '=':
+                    calculator.equals(temporaryAnswer)
+                    break;
                 default: 
                     console.log('not a known operator')
             }
@@ -99,7 +102,7 @@ function buttonPress(buttonValue) {
         
     }
 
-    console.log(calculator)
+    //console.log(calculator)
 }
        
 
