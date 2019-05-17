@@ -50,10 +50,14 @@ function buttonPress(buttonValue) {
             switch (operator) {
                 case '+':
                     calculator.temporaryAnswer = calculator.add(temporaryAnswer, number) 
-                    //console.log(temporaryAnswer + ' + ' + number + ' = ' + calculator.temporaryAnswer )
+                    console.log(temporaryAnswer + ' + ' + number + ' = ' + calculator.temporaryAnswer )
+                    break;
+                case '-':
+                    calculator.temporaryAnswer = calculator.sub(temporaryAnswer, number) 
+                    console.log(temporaryAnswer + ' - ' + number + ' = ' + calculator.temporaryAnswer )
                     break;
                 default: 
-                    console.log('not a + operator')
+                    console.log('not a known operator')
             }
                 
         }
