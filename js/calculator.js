@@ -36,6 +36,18 @@ function buttonPress(buttonValue) {
             calculator.numberArray = []
             // store operator
             calculator.operator = buttonValue
+        } else {
+       // stored operator
+                // check what the store operator is and use that function
+                    // set temp ans as opFunc(temp, num)
+            switch (calculator.operator) {
+                case '+':
+                    calculator.temporaryAnswer = calculator.add(calculator.temporaryAnswer, calculator.number) 
+                    break;
+                default: 
+                    console.log('not a + operator')
+            }
+                
         }
 
     // if .
@@ -50,10 +62,7 @@ function buttonPress(buttonValue) {
         
 
             
-            // stored operator
-                // check what the store operator is and use that function
-                    // set temp ans as opFunc(temp, num)
-                
+
 
         
     }
