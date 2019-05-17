@@ -15,6 +15,12 @@ var calculator = {
     multiply: (a,b) => { return a * b},
     divide: (a,b) => { return a / b }, 
     percent: (a) => {return a /100},
+    equals: (a) => {
+        //set final answer
+        calculator.finalAnswer = a
+        //print to screen
+        calculator.printToCalc(a)
+    },
 
     //display
     printToCalc: (number) => { document.getElementById("answer").value=number }
@@ -29,11 +35,12 @@ function buttonPress(buttonValue) {
         calculator.number = Number(calculator.numberArray.join(''))
         //print to screen
         calculator.printToCalc(calculator.number) 
-    } else{
+    }else{
         //check for stored operator
         if (!calculator.operator) {
             // set temp ans as number
             calculator.temporaryAnswer = calculator.number
+            /* REFACTOR*/
             // clear number
             calculator.number = 0
             calculator.numberArray = []
@@ -56,10 +63,23 @@ function buttonPress(buttonValue) {
                     calculator.temporaryAnswer = calculator.sub(temporaryAnswer, number) 
                     console.log(temporaryAnswer + ' - ' + number + ' = ' + calculator.temporaryAnswer )
                     break;
+                case '*':
+                    calculator.temporaryAnswer = calculator.multiply(temporaryAnswer, number) 
+                    console.log(temporaryAnswer + ' * ' + number + ' = ' + calculator.temporaryAnswer )
+                    break;
+                case '/':
+                    calculator.temporaryAnswer = calculator.divide(temporaryAnswer, number) 
+                    console.log(temporaryAnswer + ' / ' + number + ' = ' + calculator.temporaryAnswer )
+                    break;
                 default: 
                     console.log('not a known operator')
             }
-                
+            /* REFACTOR*/
+            // clear number
+            calculator.number = 0
+            calculator.numberArray = []
+            // store operator
+            calculator.operator = buttonValue
         }
 
     // if .
@@ -103,3 +123,8 @@ function buttonPress(buttonValue) {
 // }
 
 
+/*
+ } else if(buttonValue === '='){
+            calculator.equals(calculator.temporaryAnswer) 
+            //console.log('temporaryAnswer is ' + temporaryAnswer + ' number is ' + number)
+*/
