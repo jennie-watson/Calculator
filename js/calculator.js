@@ -18,12 +18,13 @@ var calculator = {
     equals: (a) => {
         //set final answer
         calculator.finalAnswer = a
+        console.log(calculator.finalAnswer + ' ' + a)
         //print to screen
         calculator.printToCalc(a)
     },
 
     //display
-    printToCalc: (number) => { document.getElementById("answer").value=number }
+    printToCalc: (num) => { document.getElementById("answer").value=num }
 };
 
 
@@ -35,9 +36,9 @@ function buttonPress(buttonValue) {
         calculator.number = Number(calculator.numberArray.join(''))
         //print to screen
         calculator.printToCalc(calculator.number) 
-    }else{
+    } else {
         //check for stored operator
-        if (!calculator.operator) {
+        if(!calculator.operator) {
             // set temp ans as number
             calculator.temporaryAnswer = calculator.number
             /* REFACTOR*/
@@ -51,31 +52,36 @@ function buttonPress(buttonValue) {
 
             // define local variables to use in the function
             var operator = calculator.operator
+            console.log('operators   ' + operator)
             var temporaryAnswer = calculator.temporaryAnswer
+            console.log('temporaryAnswer    ' + temporaryAnswer)
             var number = calculator.number
+            console.log('number   ' + number)
                 
             switch (operator) {
                 case '+':
                     calculator.temporaryAnswer = calculator.add(temporaryAnswer, number) 
                     console.log(temporaryAnswer + ' + ' + number + ' = ' + calculator.temporaryAnswer )
+                    calculator.printToCalc(calculator.temporaryAnswer)
                     break;
                 case '-':
                     calculator.temporaryAnswer = calculator.sub(temporaryAnswer, number) 
                     console.log(temporaryAnswer + ' - ' + number + ' = ' + calculator.temporaryAnswer )
+                    calculator.printToCalc(calculator.temporaryAnswer)
                     break;
                 case '*':
                     calculator.temporaryAnswer = calculator.multiply(temporaryAnswer, number) 
                     console.log(temporaryAnswer + ' * ' + number + ' = ' + calculator.temporaryAnswer )
+                    calculator.printToCalc(calculator.temporaryAnswer)
                     break;
                 case '/':
                     calculator.temporaryAnswer = calculator.divide(temporaryAnswer, number) 
                     console.log(temporaryAnswer + ' / ' + number + ' = ' + calculator.temporaryAnswer )
-                    break;
-                case '=':
-                    calculator.equals(temporaryAnswer)
+                    calculator.printToCalc(calculator.temporaryAnswer)
                     break;
                 default: 
                     console.log('not a known operator')
+
             }
             /* REFACTOR*/
             // clear number
@@ -94,9 +100,6 @@ function buttonPress(buttonValue) {
     // if = (dont know where to put this yet)
     
     
-        
-
-            
 
 
         
