@@ -11,9 +11,10 @@
         <div class="calculator">
             <div class="screen">
                 <h1>JJ Calculator</h1>
-                <input type="text" id="answer" disabled="disabled" placeholder="813">
+                <input type="text" id="answer" disabled="disabled" placeholder="__" class="blinking">
             </div>
-            <div class = 'keyboard'>
+
+            <div class ="keyboard">
                 <div class="row">
                     <button>AC</button>
                     <button>CE</button>  
@@ -35,13 +36,13 @@
                 <div class="row">
                     <button onclick="buttonPress('1')">1</button>
                     <button onclick="buttonPress('2')">2</button>  
-                    <button onclick="buttonPress('3')">3</button>  
-                    <button class="tall" onclick="buttonPress('+')">+</button>  
+                    <button onclick="buttonPress('3')">3</button>
                 </div>
-                <div class="row">
+                <div class="row" class="last-row">
                     <button onclick="buttonPress('0')">0</button>
                     <button onclick="buttonPress('.')">.</button>  
-                    <button onclick="buttonPress('=')">=</button>  
+                    <button onclick="buttonPress('=')">=</button>
+                    <button id="tall" onclick="buttonPress('+')">+</button>   
                 </div>                
             </div>
         </div>
