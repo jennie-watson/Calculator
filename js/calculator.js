@@ -1,5 +1,4 @@
 var calculator = {
-    screen: '',
     temporaryAnswer: '',
     finalAnswer: '',
     operator: '',
