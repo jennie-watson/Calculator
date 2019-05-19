@@ -47,9 +47,6 @@ h1, h2, h3 ,h4, h5, h6 {
 }
 
 /* This code makes the numbers blink, not the placeholder as intended */
-/* .blinking {
-	animation:blinkingText 0.8s infinite;
-}
 
 @keyframes blinkingText {
 	0% {color: #000;}
@@ -57,7 +54,11 @@ h1, h2, h3 ,h4, h5, h6 {
 	50% {color: transparent;}
 	75% {color:transparent;}
 	100% {color: #000;}
-} */
+}
+
+.blink{
+    animation:blinkingText 0.8s infinite;
+}
 
 .keyboard {
     padding: 10px 10px 10px 10px;

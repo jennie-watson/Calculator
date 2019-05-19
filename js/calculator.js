@@ -1,78 +1,115 @@
 var calculator = {
-    screen: '',
     temporaryAnswer: '',
-    finalAnswer: '',
+    answer: '',
     operator: '',
     numberArray: [],
     number: 0,
-    add: (a,b) => { return a + b },
-    sub: (a,b) => { return a - b},
-    multiply: (a,b) => { return a * b},
-    divide: (a,b) => { return a / b }, 
-    percent: (a) => {return a / 100},
-    printToCalc: (num) => { document.getElementById("answer").value=num }
+    waiting: true
 };
 
-
 function buttonPress(buttonValue) {
-    if (!isNaN(buttonValue)) {
-        // Handling buttonPress so the values display to the screen correctly
-        calculator.numberArray.push(buttonValue)
-        calculator.number = Number(calculator.numberArray.join(''))
-        calculator.printToCalc(calculator.number) 
-    } else {
+    notWaiting()
+    if (!isNaN(buttonValue)||buttonValue == ".") {
+        buildNumber(buttonValue)
+        printToCalc(calculator.number)
+    } else if (buttonValue == "AC") {
+        waiting()
+        reset()
+        printToCalc('_')
+    } else if (buttonValue == "CE") {
+        softReset()
+        if(calculator.temporaryAnswer){
+            printToCalc(calculator.temporaryAnswer)
+        }else{
+            printToCalc('')
+        }
+    } else if (buttonValue == "%") {
+        if(calculator.number){
+            calculator.number = percent(calculator.number)
+        }else{
+            calculator.number = percent(calculator.temporaryAnswer)
+        }
+        printToCalc(calculator.number)
+    } else if (buttonValue == '-'||buttonValue == '+'||buttonValue == '/'||buttonValue == '*'){
         if(!calculator.operator) {
-            // Setting the first number as the current answer and clearing the way for the next arguement in the equation
             calculator.temporaryAnswer = calculator.number
-            calculator.number = 0
-            calculator.numberArray = []
-            // store operator
-            calculator.operator = buttonValue
+            clearNumbers()
+            setOperator(buttonValue)
         } else {
-            // check what the store operator is and use that function
-
-            var operator = calculator.operator
-            var temporaryAnswer = calculator.temporaryAnswer
-            var number = calculator.number
-            
-            // On the buttonPress of an operator it looks at the last portion of the equation and saves it to temporaryAnswer, then stores the new operator.
-            switch (operator) {
-                case '+':
-                    calculator.temporaryAnswer = calculator.add(temporaryAnswer, number) 
-                    // console.log(temporaryAnswer + ' + ' + number + ' = ' + calculator.temporaryAnswer )
-                    calculator.printToCalc(calculator.temporaryAnswer)
-                    break;
-                case '-':
-                    calculator.temporaryAnswer = calculator.sub(temporaryAnswer, number) 
-                    // console.log(temporaryAnswer + ' - ' + number + ' = ' + calculator.temporaryAnswer )
-                    calculator.printToCalc(calculator.temporaryAnswer)
-                    break;
-                case '*':
-                    calculator.temporaryAnswer = calculator.multiply(temporaryAnswer, number) 
-                    // console.log(temporaryAnswer + ' * ' + number + ' = ' + calculator.temporaryAnswer )
-                    calculator.printToCalc(calculator.temporaryAnswer)
-                    break;
-                case '/':
-                    calculator.temporaryAnswer = calculator.divide(temporaryAnswer, number) 
-                    // console.log(temporaryAnswer + ' / ' + number + ' = ' + calculator.temporaryAnswer )
-                    calculator.printToCalc(calculator.temporaryAnswer)
-                    break;
-                case '%':
-                    calculator.temporaryAnswer = calculator.percent(temporaryAnswer) 
-                    // console.log(temporaryAnswer + ' % ' + number + ' = ' + calculator.temporaryAnswer )
-                    calculator.printToCalc(calculator.temporaryAnswer)
-                    break;
-                default: 
-                    console.log(operator)
-                    console.log('not a known operator')
-            }
-
-            // clear the way for next arguement in the equation
-            calculator.number = 0
-            calculator.numberArray = []
-            // store operator
-            calculator.operator = buttonValue
+            calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
+            setOperator(buttonValue)
+            printToCalc(calculator.temporaryAnswer)
         }        
+    } else if (buttonValue == "=") {
+        calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
+        var answer = calculator.answer = calculator.temporaryAnswer
+        printToCalc(answer)
     }
 }
 
+function calculate(a,b,operator){
+    // check what the store operator is and use that function
+    switch (operator) {
+        case '+':
+            calculator.temporaryAnswer = add(a, b)
+            break;
+        case '-':
+            calculator.temporaryAnswer = sub(a, b) 
+            break;
+        case '*':
+            calculator.temporaryAnswer = multiply(a, b) 
+            break;
+        case '/':
+            calculator.temporaryAnswer = divide(a, b) 
+            break;
+        case '%':
+            calculator.temporaryAnswer = percent(a) 
+            break;
+    }
+    clearNumbers()
+}
+
+function buildNumber(num){
+    calculator.numberArray.push(num)
+    calculator.number = Number(calculator.numberArray.join(''))
+}
+function reset(){
+    calculator.temporaryAnswer =''
+    calculator.answer = ''
+    calculator.operator = ''
+    calculator.numberArray = []
+    calculator.number = 0
+}
+
+function softReset(){
+    calculator.number = 0
+    calculator.numberArray =[]
+    calculator.operator = ''
+}
+
+function printToCalc(num) { 
+    document.getElementById("answer").value=num
+}
+
+function clearNumbers(){
+    calculator.number = 0
+    calculator.numberArray = []
+}
+
+function setOperator(operator){
+    calculator.operator = operator
+}
+
+function notWaiting(){
+    document.getElementById('answer').className = ""
+}
+
+function waiting(){
+    document.getElementById('answer').className = "blink"
+}
+
+var add = (a,b) => { return a + b }
+var sub = (a,b) => { return a - b}
+var multiply = (a,b) => { return a * b}
+var divide = (a,b) => { return a / b }
+var percent = (a) => {return a / 100}
