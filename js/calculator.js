@@ -23,6 +23,13 @@ function buttonPress(buttonValue) {
         calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
         var answer = calculator.answer = calculator.temporaryAnswer
         printToCalc(answer)
+    } else if (buttonValue == "AC") {
+        calculator.temporaryAnswer =''
+        calculator.answer = ''
+        calculator.operator = ''
+        calculator.numberArray = []
+        calculator.number = 0
+        printToCalc('')
     } else if (buttonValue == '-'||buttonValue == '+'||buttonValue == '/'||buttonValue == '*'){
         if(!calculator.operator) {
             // Setting the first number as the current answer and clearing the way for the next arguement in the equation
@@ -33,11 +40,13 @@ function buttonPress(buttonValue) {
             calculator.operator = buttonValue
         } else {
             calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
+            // store operator
+            calculator.operator = buttonValue
             printToCalc(calculator.temporaryAnswer)
-            // On the buttonPress of an operator it looks at the last portion of the equation and saves it to temporaryAnswer, then stores the new operator.
         }        
     }
     console.log(count + '. number: ' + calculator.number + ' | temp answer: ' + calculator.temporaryAnswer + ' | number array ' + calculator.numberArray + ' | operator: ' + calculator.operator)
+    console.log(calculator)
 }
 
 function calculate(a,b,operator){
@@ -67,8 +76,6 @@ function calculate(a,b,operator){
     // clear the way for next arguement in the equation
     calculator.number = 0
     calculator.numberArray = []
-    // store operator
-    calculator.operator = operator
 }
 
 function printToCalc(num) { 
