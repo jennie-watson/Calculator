@@ -26,6 +26,14 @@ function buttonPress(buttonValue) {
     } else if (buttonValue == "AC") {
         reset()
         printToCalc('')
+    } else if (buttonValue == "CE") {
+        softReset()
+        if(calculator.temporaryAnswer){
+            printToCalc(calculator.temporaryAnswer)
+        }else{
+            printToCalc('')
+        }
+    } else if (buttonValue == ".") {
     } else if (buttonValue == '-'||buttonValue == '+'||buttonValue == '/'||buttonValue == '*'){
         if(!calculator.operator) {
             // Setting the first number as the current answer and clearing the way for the next arguement in the equation
@@ -80,6 +88,12 @@ function reset(){
     calculator.operator = ''
     calculator.numberArray = []
     calculator.number = 0
+}
+
+function softReset(){
+    calculator.number = 0
+    calculator.numberArray =[]
+    calculator.operator = ''
 }
 
 function printToCalc(num) { 
