@@ -14,10 +14,8 @@ var count =0;
 
 function buttonPress(buttonValue) {
     count++
-    if (!isNaN(buttonValue)) {
-        // Handling buttonPress so the values display to the screen correctly
-        calculator.numberArray.push(buttonValue)
-        calculator.number = Number(calculator.numberArray.join(''))
+    if (!isNaN(buttonValue)||buttonValue == ".") {
+        buildNumber(buttonValue)
         printToCalc(calculator.number)
     } else if (buttonValue == "=") {
         calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
@@ -33,7 +31,6 @@ function buttonPress(buttonValue) {
         }else{
             printToCalc('')
         }
-    } else if (buttonValue == ".") {
     } else if (buttonValue == "%") {
         calculator.number = calculator.percent(calculator.number)
         printToCalc(calculator.number)
@@ -85,6 +82,10 @@ function calculate(a,b,operator){
     calculator.numberArray = []
 }
 
+function buildNumber(num){
+    calculator.numberArray.push(num)
+    calculator.number = Number(calculator.numberArray.join(''))
+}
 function reset(){
     calculator.temporaryAnswer =''
     calculator.answer = ''
