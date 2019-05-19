@@ -24,11 +24,7 @@ function buttonPress(buttonValue) {
         var answer = calculator.answer = calculator.temporaryAnswer
         printToCalc(answer)
     } else if (buttonValue == "AC") {
-        calculator.temporaryAnswer =''
-        calculator.answer = ''
-        calculator.operator = ''
-        calculator.numberArray = []
-        calculator.number = 0
+        reset()
         printToCalc('')
     } else if (buttonValue == '-'||buttonValue == '+'||buttonValue == '/'||buttonValue == '*'){
         if(!calculator.operator) {
@@ -76,6 +72,14 @@ function calculate(a,b,operator){
     // clear the way for next arguement in the equation
     calculator.number = 0
     calculator.numberArray = []
+}
+
+function reset(){
+    calculator.temporaryAnswer =''
+    calculator.answer = ''
+    calculator.operator = ''
+    calculator.numberArray = []
+    calculator.number = 0
 }
 
 function printToCalc(num) { 
