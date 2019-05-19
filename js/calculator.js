@@ -10,12 +10,15 @@ var calculator = {
     divide: (a,b) => { return a / b }, 
     percent: (a) => {return a / 100}
 };
-
+var count =0;
 
 function buttonPress(buttonValue) {
+    count++
     if (!isNaN(buttonValue)) {
         // Handling buttonPress so the values display to the screen correctly
-        printToCalc(buttonValue) 
+        calculator.numberArray.push(buttonValue)
+        calculator.number = Number(calculator.numberArray.join(''))
+        printToCalc(calculator.number)
     } else {
         if(!calculator.operator) {
             // Setting the first number as the current answer and clearing the way for the next arguement in the equation
@@ -36,6 +39,7 @@ function buttonPress(buttonValue) {
             calculator.operator = buttonValue
         }        
     }
+    console.log(count + '. number: ' + calculator.number + ' | temp answer: ' + calculator.temporaryAnswer + ' | number array ' + calculator.numberArray + ' | operator: ' + calculator.operator)
 }
 
 function calculate(a,b,operator){
@@ -66,7 +70,5 @@ function calculate(a,b,operator){
 }
 
 function printToCalc(num) { 
-    calculator.numberArray.push(num)
-    calculator.number = Number(calculator.numberArray.join(''))
-    document.getElementById("answer").value=calculator.number
+    document.getElementById("answer").value=num
 }
