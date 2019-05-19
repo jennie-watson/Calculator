@@ -1,6 +1,6 @@
 var calculator = {
     temporaryAnswer: '',
-    finalAnswer: '',
+    answer: '',
     operator: '',
     numberArray: [],
     number: 0,
@@ -19,7 +19,11 @@ function buttonPress(buttonValue) {
         calculator.numberArray.push(buttonValue)
         calculator.number = Number(calculator.numberArray.join(''))
         printToCalc(calculator.number)
-    } else {
+    } else if (buttonValue == "=") {
+        calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
+        var answer = calculator.answer = calculator.temporaryAnswer
+        printToCalc(answer)
+    } else if (buttonValue == '-'||buttonValue == '+'||buttonValue == '/'||buttonValue == '*'){
         if(!calculator.operator) {
             // Setting the first number as the current answer and clearing the way for the next arguement in the equation
             calculator.temporaryAnswer = calculator.number
@@ -29,14 +33,8 @@ function buttonPress(buttonValue) {
             calculator.operator = buttonValue
         } else {
             calculate(calculator.temporaryAnswer,calculator.number,calculator.operator)
-            
+            printToCalc(calculator.temporaryAnswer)
             // On the buttonPress of an operator it looks at the last portion of the equation and saves it to temporaryAnswer, then stores the new operator.
-        
-            // clear the way for next arguement in the equation
-            calculator.number = 0
-            calculator.numberArray = []
-            // store operator
-            calculator.operator = buttonValue
         }        
     }
     console.log(count + '. number: ' + calculator.number + ' | temp answer: ' + calculator.temporaryAnswer + ' | number array ' + calculator.numberArray + ' | operator: ' + calculator.operator)
@@ -66,7 +64,11 @@ function calculate(a,b,operator){
             // console.log(temporaryAnswer + ' % ' + number + ' = ' + calculator.temporaryAnswer )
             break;
     }
-    printToCalc(calculator.temporaryAnswer)
+    // clear the way for next arguement in the equation
+    calculator.number = 0
+    calculator.numberArray = []
+    // store operator
+    calculator.operator = operator
 }
 
 function printToCalc(num) { 
