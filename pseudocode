@@ -4,6 +4,12 @@
 // temp = var used for calculations. Define as empty string
 
 // JS
+
+    // get buttons working - give each button in html a value - DONE
+
+    // event.handler on click of the button 
+        // 
+
     // Everything needs to be pushed to an array which we the loop throught to caluculate
 
     // 1. You enter number first
@@ -42,4 +48,6 @@
     
     // Do basic positioning of elements
     // do basic styling
+
+    // add an animation so that the first value is a '_' which flickers 
 

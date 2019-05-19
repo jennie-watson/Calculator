@@ -1,40 +1,39 @@
-body{
+body {
     font-family: 'Share Tech Mono', monospace;
 }
 h1, h2, h3 ,h4, h5, h6 {
     margin: 0;
-    font-size: 1em;
+    font-size: 1.6em;
     font-family: 'Black Ops One', cursive;
 }
 
-.container{
+.container {
     margin: 0 auto;
     clear: both;
     max-width: 500px;
 }
 
-.calculator{
-    display: block;
+.calculator {
     border: 10px #aaa solid;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     width: 300px;
-    min-height: 400px;
+    min-height: 410px;
     margin: 0 auto;
     background-color: #ccc; 
 }
 
-.screen{
+.screen {
     color: #eee;
     background-color: #444;
     padding: 5px 0 20px 0;
 }
 
-.screen h1{
-    padding-bottom: 10px;
+.screen h1 {
+    padding: 5px 0 5px 0;
 }
 
-.screen input{
+.screen input {
     width: 280px;
     font-size: 2em;
     background-color: #F4CD69;
@@ -47,17 +46,64 @@ h1, h2, h3 ,h4, h5, h6 {
     text-align: right;
 }
 
-.keyboard{
-    padding: 10px;
+/* This code makes the numbers blink, not the placeholder as intended */
+/* .blinking {
+	animation:blinkingText 0.8s infinite;
 }
 
-.tall {
-    height: 50px;
+@keyframes blinkingText {
+	0% {color: #000;}
+	25% {color: transparent;}
+	50% {color: transparent;}
+	75% {color:transparent;}
+	100% {color: #000;}
+} */
+
+.keyboard {
+    padding: 10px 10px 10px 10px;
+    font-size: 1.2em;
 }
-/*
-    style the calculator box so it has som shadow and looks a bit more 3D
-    Make the buttons look cool
-        buttons width in a row (inc margin) should add up to 280px
-        when you click the button it should depress
-    Lay the buttons out correctsly
-*/
+
+.row {
+    padding: 5px 0 5px 0;
+    clear: both;
+}
+
+button {
+    color: #eee;
+    background-color: #444;
+}
+
+.keyboard .row button {
+    width: 60px;
+    padding: 5px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 1em;
+    border-left: 2px solid #eee;
+    border-top: 2px solid #eee;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 5px 0 5px;
+    float: left;
+}
+
+.keyboard .row button:active {
+    border-left: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+button:focus {
+    outline: 0;
+}
+
+#tall {
+    width: 60px;
+    height: 100px;
+    margin: 5px 5px 0 5px;
+    position: relative;
+    top: -55px;
+   }
