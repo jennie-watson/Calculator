@@ -34,6 +34,9 @@ function buttonPress(buttonValue) {
             printToCalc('')
         }
     } else if (buttonValue == ".") {
+    } else if (buttonValue == "%") {
+        calculator.number = calculator.percent(calculator.number)
+        printToCalc(calculator.number)
     } else if (buttonValue == '-'||buttonValue == '+'||buttonValue == '/'||buttonValue == '*'){
         if(!calculator.operator) {
             // Setting the first number as the current answer and clearing the way for the next arguement in the equation
